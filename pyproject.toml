@@ -1,0 +1,23 @@
+[project]
+name = "matlib-z3342-tem1-msgvk"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "kkatya05", email = "katya.koliada@mail.ru" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.4.4",
+]
+
+[build-system]
+requires = ["uv_build>=0.11.14,<0.12.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mkdocs>=1.6.1",
+    "pytest>=9.0.3",
+    "ruff>=0.15.13",
+]
