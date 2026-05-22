@@ -2,33 +2,6 @@
 import numpy as np
 from typing import Protocol
 
-class MatrixProtocol(Protocol):
-    """Минимальный интерфейс для всех матричных классов.
-    
-    Любой класс, реализующий этот протокол, должен предоставлять:
-    - shape: размеры матрицы (rows, cols)
-    - to_dense(): преобразование в плотный numpy массив
-    - matvec(x): умножение матрицы на вектор
-    """
-
-    @property
-    def shape(self) -> tuple[int, int]:
-        """Возвращает размеры матрицы (количество строк, количество столбцов)."""
-        ...
-
-    def to_dense(self) -> np.ndarray:
-        """Преобразует матрицу в плотный numpy массив."""
-        ...
-
-    def matvec(self, x: np.ndarray) -> np.ndarray:
-        """Умножение матрицы на вектор.
-        
-        Args:
-            x: Вектор размера (n,), где n == self.shape[1]
-        Returns:
-            Результат умножения размера (m,), где m == self.shape[0]
-        """
-        ...
 
 class TextBlock:
     def __init__(self, rows):

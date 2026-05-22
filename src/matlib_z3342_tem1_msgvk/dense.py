@@ -1,4 +1,4 @@
-from .base import MatrixProtocol, Matrix
+from .base import  Matrix
 from .errors import ShapeMismatchError, SingularMatrixError
 import numpy as np 
 
