@@ -6,3 +6,9 @@ class ShapeMismatchError(ValueError):
 class SingularMatrixError(ValueError):
     """Raised when a linear system cannot be solved due to singularity."""
     pass
+
+
+class MatrixNotSquareError(ValueError):
+    """Raised when an operation requires a square matrix."""
+    pass
+
