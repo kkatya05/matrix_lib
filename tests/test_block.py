@@ -3,7 +3,6 @@ import pytest
 import numpy as np
 from src import FullMatrix, ShapeMismatchError
 from src.block import BlockMatrix
-
 @pytest.fixture
 def sample_blocks():
     """ Инициализация блоков """

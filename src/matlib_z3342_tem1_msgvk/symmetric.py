@@ -77,3 +77,34 @@ class SymmetricMatrix(Matrix):
         if len(x) != self.width:
             raise ShapeMismatchError("Vector length does not match matrix width")
         return self.to_dense() @ x
+
+    def __sub__(self, other):
+        from .dense import FullMatrix  # локальный импорт во избежание циклической зависимости
+        
+        if isinstance(other, SymmetricMatrix):
+            if self.shape != other.shape:
+                raise ShapeMismatchError("Matrix shapes must match for subtraction.")
+            return SymmetricMatrix(self.data - other.data)
+            
+        if isinstance(other, FullMatrix):
+            if self.shape != other.shape:
+                raise ShapeMismatchError("Matrix shapes must match for subtraction.")
+            # self.to_dense() возвращает чистый numpy-массив, из которого вычитаем other.data
+            return FullMatrix(self.to_dense() - other.data)
+            
+        return NotImplemented
+
+    def __matmul__(self, other):
+        from .dense import FullMatrix
+        
+        if isinstance(other, FullMatrix):
+            if self.width != other.height:
+                raise ShapeMismatchError(f"Shapes do not match for matrix multiplication.")
+            return FullMatrix(self.to_dense() @ other.data)
+            
+        if isinstance(other, Matrix):
+            if self.width != other.height:
+                raise ShapeMismatchError(f"Shapes do not match for matrix multiplication.")
+            return FullMatrix(self.to_dense() @ other.to_dense())
+
+        return NotImplemented
