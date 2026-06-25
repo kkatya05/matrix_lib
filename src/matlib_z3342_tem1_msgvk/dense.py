@@ -28,7 +28,7 @@ class FullMatrix(Matrix):
         )
     
         # Умножение матрицы на вектор
-        return self._data @ x
+        return self.data @ x
         
     
     def empty_like(self, width=None, height=None):
