@@ -1,0 +1,19 @@
+site_name: MatLib Team 01
+
+theme:
+  name: readthedocs
+
+nav:
+  - Home: index.md
+  - Tutorial: tutorial.md
+  - API: api.md
+  - Development: development.md
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - toc:
+      permalink: true
